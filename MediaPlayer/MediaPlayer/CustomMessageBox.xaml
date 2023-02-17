@@ -1,0 +1,87 @@
+﻿<Window x:Class="MediaPlayer.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:local="clr-namespace:MediaPlayer"
+        mc:Ignorable="d"
+        Title="CustomMessageBox" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            Opacity="0.95">
+
+        <!-- Border -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#6D2FFF" Offset="0"/>
+                <GradientStop Color="#FB539B" Offset="0.5"/>
+                <GradientStop Color="#836EF8" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <SolidColorBrush Color="#F0000000"/>
+        </Border.Background>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Control Bar-->
+            <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0 0 3 0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown">
+
+                <Button x:Name="btnClose"
+                                Style="{StaticResource controlBarButton}"
+                                Click="btnClose_Click">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlBarButtonIcon}"/>
+                </Button>
+            </StackPanel>
+
+            
+            <StackPanel Grid.Row="1"
+                        VerticalAlignment="Center">
+                
+                <ScrollViewer Height="100">
+                    <TextBlock x:Name="tbMsg"
+                           Text="{Binding}"
+                           Foreground="White"
+                           FontFamily="Monsetrat"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="DemiBold"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+                </ScrollViewer>
+                
+
+                <!--Buttons-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+                        <Button x:Name="btnOk" Click="btnOk_Click" Width="70" IsCancel="True" Margin="10" Content="OK I got it" Style="{StaticResource addPlaylistButton}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+                        <Button x:Name="btnCancel" Click="btnCancel_Click" Width="70" IsCancel="True" IsDefault="True" Margin="10" Content="Cancel" Style="{StaticResource addPlaylistButton}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+
+    </Border>
+</Window>

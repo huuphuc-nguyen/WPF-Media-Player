@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=kxhvwGEqvcs
+Custom ScrollBar https://www.youtube.com/watch?v=llgUjMowT74
+
+Custom textbox https://www.youtube.com/watch?v=OL7cXkOODiU
+
+Check if item exist in ObservableCollection
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/30c8a6b8-1eac-475a-b468-6d1bf57c64a9/checking-if-an-observablecollection-contains-a-specific-object?forum=csharpgeneral

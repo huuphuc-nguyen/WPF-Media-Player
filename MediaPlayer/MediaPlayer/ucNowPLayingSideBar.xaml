@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="MediaPlayer.ucNowPLayingSideBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:local="clr-namespace:MediaPlayer"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Styles/ScrollBar.xaml"/>
+    </UserControl.Resources>
+
+    <!--Design: Navigation Menu-->
+    <Border CornerRadius="10,0,0,0">
+
+        <Border.Background>
+            <SolidColorBrush Color="#F0000000"/>
+        </Border.Background>
+
+        <StackPanel>
+
+            <!--Logo-->
+            <StackPanel Orientation="Horizontal"
+                                Height="35"
+                                Margin="15,25,0,20">
+                <Image Source="/Images/logo.png" Height="30"/>
+                <TextBlock Text="~ Hữu Phúc ~"
+                                   Foreground="#FFFFFF"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <TextBlock Text="Now Playing" Foreground="#FFFFFF" FontSize="17" FontFamily="Montserrat" FontWeight="Medium" Margin="15,0,0,10"/>
+                
+                <fa:IconImage Icon="ArrowAltCircleLeft"
+                              x:Name="btnBack"
+                              Style="{StaticResource IconNormal}" 
+                              HorizontalAlignment="Left"
+                              Margin="80 -9 0 0" Height="20" Width="20"
+                              MouseLeftButtonDown="btnBack_MouseLeftButtonDown"/>
+            </StackPanel>
+
+            <TextBox x:Name="tbSearchNowPlaying"
+                     Style="{StaticResource searchTextBox}"
+                     HorizontalAlignment="Left"
+                     Tag="Search"
+                     Height="30"
+                     Width="200"
+                     Margin="15 0 0 10"
+                     TextChanged="tbSearchNowPlaying_TextChanged">
+            </TextBox>
+
+            <Canvas Width="235" HorizontalAlignment="Left">
+
+                <ScrollViewer x:Name="PlayingLayout" VerticalScrollBarVisibility="Auto"
+                               Height="310" 
+                              Width="235"
+                              CanContentScroll="True" Panel.ZIndex="0">
+                    <!--Real LView-->
+                    <ListView 
+                              BorderThickness="0"
+                              Background="Transparent"
+                              x:Name="lvNowPlaying"
+                              ItemContainerStyle="{StaticResource listViewItem}"
+                              SelectionChanged="lvNowPlaying_SelectionChanged"
+                              PreviewMouseLeftButtonDown="lvNowPlaying_PreviewMouseLeftButtonDown"
+                              PreviewMouseRightButtonDown="lvNowPlaying_PreviewMouseRightButtonDown">
+
+                        <!--Need this code when a scroll view wrap list view, this code shutdown the scrollviewr inside listview-->
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter></ItemsPresenter>
+                            </ControlTemplate>
+                        </ListView.Template>
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Margin="25,0,15,0" Icon="ItunesNote" Style="{StaticResource listViewItemIcon}"/>
+                                    <TextBlock Text="{Binding Name}"
+                                               Width="160"
+                                               TextTrimming="CharacterEllipsis"
+                                               Style="{StaticResource listViewItemText}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.ContextMenu>
+                            <ContextMenu x:Name="ctmnPlayingSong"
+                                     Background="Transparent"
+                                     Style="{StaticResource ConTextMenu}"
+                                     ItemContainerStyle="{StaticResource ContextMenuItem}">
+                                <MenuItem x:Name="mnDelete" Click="mnDelete_Click">
+                                    <MenuItem.Header>
+                                        <TextBlock Text="Remove"
+                                               FontSize="12" FontWeight="DemiBold" FontFamily="Montserrat"
+                                               VerticalAlignment="Center"/>
+                                    </MenuItem.Header>
+                                    <MenuItem.Icon>
+                                        <fa:IconImage x:Name="icDelete" Icon="XmarkCircle"
+                                                 Style="{StaticResource contexMenuIcon}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+
+                    </ListView>
+                </ScrollViewer>
+
+                <!-- Search LView -->
+                <ScrollViewer Visibility="Hidden" x:Name="SearchLayout" VerticalScrollBarVisibility="Auto"
+                               Height="310" Width="235"
+                              CanContentScroll="True" Panel.ZIndex="1">
+                    
+                    <ListView 
+                          x:Name="lvSearch"
+                          BorderThickness="0"
+                          Background="Transparent"
+                          ItemContainerStyle="{StaticResource listViewItem}"
+                          SelectionChanged="lvSearch_SelectionChanged"
+                          PreviewMouseRightButtonDown="lvSearch_PreviewMouseRightButtonDown"
+                          PreviewMouseLeftButtonDown="lvSearch_PreviewMouseLeftButtonDown">
+
+                        <!--Need this code when a scroll view wrap list view, this code shutdown the scrollviewr inside listview-->
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter></ItemsPresenter>
+                            </ControlTemplate>
+                        </ListView.Template>
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:IconImage Margin="25,0,15,0" Icon="ItunesNote" Style="{StaticResource listViewItemIcon}"/>
+                                    <TextBlock Text="{Binding Name}"
+                                               Width="170"
+                                               TextTrimming="CharacterEllipsis"
+                                               Style="{StaticResource listViewItemText}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.ContextMenu>
+                            <ContextMenu x:Name="ctmnPlayingSong2"
+                                     Background="Transparent"
+                                     Style="{StaticResource ConTextMenu}"
+                                     ItemContainerStyle="{StaticResource ContextMenuItem}">
+                                <MenuItem x:Name="mnDelete2" Click="mnDelete2_Click">
+                                    <MenuItem.Header>
+                                        <TextBlock Text="Delete"
+                                               FontSize="12" FontWeight="DemiBold" FontFamily="Montserrat"
+                                               VerticalAlignment="Center"/>
+                                    </MenuItem.Header>
+                                    <MenuItem.Icon>
+                                        <fa:IconImage x:Name="icDelete2" Icon="XmarkCircle"
+                                                 Style="{StaticResource contexMenuIcon}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+
+                    </ListView>
+                </ScrollViewer>
+
+            </Canvas>
+
+        </StackPanel>
+    </Border>
+</UserControl>
