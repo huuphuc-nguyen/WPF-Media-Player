@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/defaultavatarf.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("itunes.ico")]
 
 
