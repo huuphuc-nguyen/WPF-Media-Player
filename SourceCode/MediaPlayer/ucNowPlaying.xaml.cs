@@ -34,6 +34,8 @@ namespace MediaPlayer
 
         Playlist currentPlayList = null;
 
+        int waiting_time;
+
         public ucNowPlaying()
         {
             InitializeComponent();
@@ -53,6 +55,9 @@ namespace MediaPlayer
 
             // set default Avatar
             SetUpDefaultAvatar();
+
+            // first time run app need more time to load file
+            waiting_time = 1200;
         }
 
         public void LoadTotalTime(Song Song)
@@ -68,7 +73,8 @@ namespace MediaPlayer
             mediaPlayer.Stop();
 
             ////System.Threading.Thread.Sleep(500);
-            System.Threading.Thread.Sleep(800);
+            System.Threading.Thread.Sleep(waiting_time);
+            waiting_time = 800;
 
             double hours = mediaPlayer.NaturalDuration.TimeSpan.Hours;
             double minutes = mediaPlayer.NaturalDuration.TimeSpan.Minutes;
