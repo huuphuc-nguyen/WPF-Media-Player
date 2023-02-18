@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>itunes.ico</ApplicationIcon>
+    <ApplicationIcon>youtube.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CustomMarshalers" />
@@ -205,6 +205,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="itunes.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="music.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="music-_1_.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="youtube.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

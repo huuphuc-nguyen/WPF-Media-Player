@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-E:\Huu Phuc\@_ IT\GitHubProject\WPF-Media-Player\SourceCode\MediaPlayer\obj\Debug\
+E:\Huu Phuc\@_ IT\GitHubProject\WPF-Media-Player\SourceCode\MediaPlayer\obj\Release\
 MediaPlayer
 none
 false
-DEBUG;TRACE
+TRACE
 E:\Huu Phuc\@_ IT\GitHubProject\WPF-Media-Player\SourceCode\MediaPlayer\App.xaml
 12-1437632061
 
-15-1986418519
+152073329312
 131375876732
 AddPlaylist.xaml;CustomMessageBox.xaml;MainWindow.xaml;Styles\ButtonStyles.xaml;Styles\ContextMenu.xaml;Styles\ScrollBar.xaml;Styles\SliderStyle.xaml;Styles\TextBoxStyles.xaml;ucMenu.xaml;ucNowPlaying.xaml;ucNowPLayingSideBar.xaml;ucRecentPlay.xaml;
 
