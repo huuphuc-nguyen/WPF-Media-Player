@@ -1,4 +1,4 @@
-# WPF-Media-Player
+# :musical_score: WPF-Media-Player :musical_score:
 ## I. Project description:
 This app can do:
 - Add all media files you want to play into a playlist (currently just support for audio .mp3, ... files).
