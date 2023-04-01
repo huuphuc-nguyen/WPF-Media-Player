@@ -11,7 +11,7 @@ This app can do:
 ## II.How to run the program
 |To execute the program|To debug and view code|
 |------------|:---------------|
-|1. Open *Release/AppRelease/MediaPlayer.exe|1. Open Visual Studio 2019|
+|1. Open *Release/AppRelease/MediaPlayer.exe*|1. Open Visual Studio 2019|
 |2. You can manage playlists in folder *Release/AppRelease/PlayLists*|2. Open *SourceCode/MediaPlayer.sln*|
 ## III. Some knowledge 
 - Use Style and Template of Controls to design modern UI.
